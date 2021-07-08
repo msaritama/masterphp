@@ -37,7 +37,6 @@ echo "<h1>$year</h1>";
 
 $edad=55;
 echo $edad.'<br>';
-
 echo ($edad+=5).'<br>';
 echo ($edad-=5).'<br>';
 echo ($edad*=5).'<br>';
