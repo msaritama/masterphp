@@ -84,4 +84,73 @@ function calculadoraRetorno($numero1, $numero2,$opc=null)
     return $data;
 }
 echo calculadoraRetorno(10,3,2);
+
+/* -------------------------------- Ejemplo 5 ------------------------------- */
+/* ------------------------ Funciones dentro de otras ----------------------- */
+
+function getNombre($nombre)
+{
+    $texto="Su nombre es $nombre";
+    return $texto;
+}
+
+function getApellido($apellido)
+{
+    $texto="Y su apellido es $apellido";
+    return $texto;
+}
+
+function devuelveNombre($nombres,$apellidos)
+{
+    $texto=getNombre($nombres).'<br>';
+    $texto.=getApellido($apellidos);
+    return $texto;
+}
+
+echo devuelveNombre('Miguel','Saritama');
+
+/* -------------------------------------------------------------------------- */
+/*                              Variables locales                             */
+/* -------------------------------------------------------------------------- */
+/* Son las que se definen dentro de una funcion y no pueden ser usadas
+fuera de la funcion, solo estan disponibles dentro a no ser que se haga
+uso de un return */
+
+
+/* -------------------------------------------------------------------------- */
+/*                             Variables globales                             */
+/* -------------------------------------------------------------------------- */
+/* Se declaran fuera de una funcion y estan disponibles dentro y fuera
+de las funciones */
+
+$frase='Variables sobre funciones';
+//echo $frase;
+
+function imprimir()
+{
+    global $frase;
+    echo "$frase";
+}
+//imprimir();
+
+/* -------------------------------------------------------------------------- */
+/*                             Funciones variables                            */
+/* -------------------------------------------------------------------------- */
+
+function buenosDias(){
+    return "Hola Buenos dias";
+}
+
+function buenosTardes(){
+    return "Hey Buenos tardes";
+}
+
+function buenosNoches(){
+    return "Hora de dormir? Buenas noches";
+}
+
+$horario="Noches";
+$miFuncion="buenos".$horario;
+echo $miFuncion();
+
 ?>
